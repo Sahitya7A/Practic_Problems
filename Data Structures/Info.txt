@@ -1,0 +1,85 @@
+Data Structures 
+                                                       INTRODUCTION TO DATA STRUCTURES
+1.	Accept marks[array]
+2.	Average
+3.	Big-Small of array
+4.	Deletion at position
+5.	Dynamic array
+6.	Even-odd count
+7.	Insert in array
+8.	Reversing array
+9.	Search array
+10.	Second-Largest array[element]
+11.	Sort array
+12.	Count-Duplicate[frequency]
+13.	Frequency of array[count of each element]
+14.	Rotation of array[left]
+15.	Unique element[frequency]
+16.	Employee [structure]
+17.	Cricket Match 
+18.	Tata Motors
+19.	Institution Details[Structure-Application]
+20.	Merge[ Sort][Function]
+21.	Merge two arrays dynamically
+22.	List display and create[Linked List]
+23.	Sum of List elements[Students]
+24.	Inserting-Front[Students]
+25.	Inserting-Back
+26.	Inserting-Position
+27.	Deleting element[Marks-Low delete]
+28.	Sorting student marks[Percentage]
+29.	Student information who has secured highest marks in the class[Application]
+30.	Search a given value return position[Application]
+31.	Min-Max value in Linked List
+32.	Employees details and delete
+33.	Sorting student in class and add with the sorting…[Add student based on marks]
+34.	Print Alternate nodes
+35.	Employee details-how many employees have same designation
+36.	SLL-Reverse List
+37.	Sort List-nodes
+38.	Circular Linked List [Creation +3Insertion]
+39.	Deletion –Given Roll-No
+40.	Doubly Linked List[Creation +3Insertion]
+41.	Deletion
+42.	Reversing elements-DLL
+43.	Stack-Array[Implementation][Push and Pop]
+44.	Stack-Linked List[Implementation] [Push and Pop][Peek]
+45.	String Reversal[S-Application]
+46.	Convert infix to postfix expression[S-Application]
+47.	Evaluation of Postfix Expression[S-Application]
+48.	Balanced Parenthesis[S-Application]
+49.	Queue-Array[Implementation-Push-Pop-Peek]
+50.	Queue-Linked List[Implementation-Push-Pop-Peek]
+51.	Generate process scheduling sequence[Round-robin algorithm][Q-Application]
+52.	Monk and Chamber of Secrets[Q-Application]
+                                               DICTIONARIES AND HASH TABLE REPRESENTATION
+1.	Linear Probing[Insert, Update, Display, Search and Delete]
+2.	Double Hashing Technique[All Operations]
+3.	Quadratic Probing[All Operations]
+4.	Separate Chaining[All Operations]
+5.	Skip List[All Operation + Search]
+                                                         SEARCH TREES
+1.	BST Creation and Traversal[Inorder, preorder and postorder]
+2.	BST Search[Inorder]
+3.	BST Deletion[Preorder]
+4.	Find floor of a key[Floor is the closest smaller or same element]
+5.	Binary Search Tree in Min Max Fashion[Min-max fashion means you have to print the maximum node first then the minimum then the second maximum then the second minimum and so on] 
+6.	Binary tree is BST or not
+7.	K-th ancestor of a node in BST
+8.	Find height of a BST
+9.	Construct BST for the given postorder traversal
+10.	Convert a Binary  Search Tree into its Mirror Tree
+                                                 GRAPHS AND SORTING
+1.	Breadth First Search (BFS) Traversal of Graph
+2.	Graph DFS traversal
+3.	Implement Heap Sort
+4.	Implement Merge Sort
+                                
+
+                                               PATTERN MATCHING AND TRIES
+1.	Implement Pattern Matching Technique using Brute Force Algorithm
+2.	Implement KMP pattern matching algorithm
+3.	Bad Character Heuristic of Boyer Moore String Matching Algorithm
+4.	Search an element in the array using Linear search Technique
+5.	Search an element in the array using Binary search Technique
+6.	Selection sort
