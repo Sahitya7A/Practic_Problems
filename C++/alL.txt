@@ -1,0 +1,886 @@
+1.
+/*
+Write a C++ program for pure virtual function
+
+
+
+Sample Output:
+This is Display1() method of Derived Class
+This is Display2() method of Derived Class
+This is Display3() method of Base Class
+
+
+
+*/
+#include<iostream>
+using namespace std;
+
+       class BaseClass       //Abstract class
+       {
+
+              public:
+            virtual  void Display1()=0;
+            virtual void Display2()=0;
+                    //Pure virtual function or abstract function
+                    //Pure virtual function or abstract function
+
+               void Display3()
+               {
+                      cout<<"This is Display3() method of Base Class\n";
+               }
+
+       };
+
+       class DerivedClass : public BaseClass
+       {
+
+              public:
+               void Display1()
+               {
+                      cout<<"This is Display1() method of Derived Class\n";
+               }
+
+               void Display2()
+               {
+                      cout<<"This is Display2() method of Derived Class\n";
+               }
+
+       };
+
+       int main()
+       {
+           BaseClass *b;
+           DerivedClass f;
+           b=&f;
+           b->Display1();
+           b->Display2();
+           b->Display3();
+
+//BaseClass g;
+                        //declare object to invoke methods
+                         // This will invoke Display1() method of Derived Class
+                         // This will invoke Display2() method of Derived Class
+                        // This will invoke Display3() method of Base Class
+              return 0;
+       }
+2.
+/* virtual functions and runtime polymorphism
+
+output:
+
+print derived class
+show base class
+
+*/
+
+#include <iostream>
+using namespace std;
+
+class base
+{
+    public:
+    virtual void print()
+    {
+        cout<<"print base class"<<endl;
+    }
+    void show()
+    {
+        cout<<"show base class"<<endl;
+    }
+};
+
+class derived:public base
+{
+    public:
+    void print()
+    {
+        cout<<"print derived class"<<endl;
+    }
+    void show()
+    {
+        cout<<"show derived class"<<endl;
+    }
+};
+
+//main function
+int main()
+{
+	base *bptr;
+	derived d;
+	bptr = &d;
+//	base f;
+
+	//virtual function, binded at runtime (Runtime polymorphism)
+	bptr->print();
+
+	// Non-virtual function, binded at compile time
+	bptr->show();
+//f.show();
+	return 0;
+}
+
+3.
+/*
+Given that an EMPLOYEE class contains following members:
+data members: Employee number, Employee name, Basic, DA, IT, Net Salary
+and print data members using member functions.
+
+Write a C++ program to read the data of N employee and compute Net salary of each
+employee (DA=52% of Basic and Income Tax (IT) =30% of the gross salary).
+
+
+Sample :
+//input
+Enter no. of Employee : 2
+Enter Employee1 Number : 10
+Enter Employee1 Name : Ram
+Enter Employee1 Basic Salary : 25000
+Enter Employee1 DA : 4000
+Enter Employee1 IT : 3000
+Enter Employee2 Number : 20
+Enter Employee2 Name : Sam
+Enter Employee2 Basic Salary : 20000
+Enter Employee2 DA : 4000
+Enter Employee2 IT : 3000
+//output :
+Employee1 Details :
+Employee1 Number : 10
+Employee1 Name : Ram
+Employee1 Basic Salary : 25000
+Employee1 DA : 4000
+Employee1 IT : 3000
+Employee1 Net Salary : 26000
+
+Employee2 Details :
+Employee2 Number : 20
+Employee2 Name : Sam
+Employee2 Basic Salary : 20000
+Employee2 DA : 4000
+Employee2 IT : 3000
+Employee2 Net Salary : 21000
+
+*/
+#include<iostream>
+using namespace std;
+class employee
+{
+    public:
+    int id;
+    char name[20];
+    double salary;
+    int DA,IT;
+    double Net;
+    int set_id(int);
+    char set_name(int);
+    double set_salary(int);
+    int set_DA(int);
+    int set_IT(int);
+    double get_Net(int);
+};
+int employee::set_id(int i)
+{
+    cout<<"Enter Employee"<<i<<" Number : ";
+    cin>>id;
+}
+char employee::set_name(int i)
+{
+    cout<<"Enter Employee"<<i<<" Name : ";
+    cin>>name;
+}
+double employee::set_salary(int i)
+{
+    cout<<"Enter Employee"<<i<<" Basic Salary : ";
+    cin>>salary;
+}
+int employee::set_DA(int i)
+{
+    cout<<"Enter Employee"<<i<<" DA : ";
+    cin>>DA;
+}
+int employee::set_IT(int i)
+{
+    cout<<"Enter Employee"<<i<<" IT : ";
+    cin>>IT;
+}
+double employee::get_Net(int i)
+{
+    cout<<"Employee"<<i<<" Details :"<<endl;
+cout<<"Employee"<<i<<" Number : "<<id<<endl;
+cout<<"Employee"<<i<<" Name : "<<name<<endl;
+cout<<"Employee"<<i<<" Basic Salary : "<<salary<<endl;
+cout<<"Employee"<<i<<" DA : "<<DA<<endl;
+cout<<"Employee"<<i<<" IT : "<<IT<<endl;
+cout<<"Employee"<<i<<" Net Salary : "<<((salary+DA)-IT)<<endl;
+cout<<endl;
+}
+int main()
+{
+    employee e[10];
+    int n;
+    cout<<"Enter no. of Employee : ";
+    cin>>n;
+    int i;
+    for(i=1;i<=n;i++)
+    {
+        e[i].set_id(i);
+        e[i].set_name(i);
+        e[i].set_salary(i);
+        e[i].set_DA(i);
+        e[i].set_IT(i);
+    }
+    for(i=1;i<=n;i++)
+    {
+        e[i].get_Net(i);
+        cout<<endl;
+    }
+    return 0;
+}
+4.
+/*
+Given that an EMPLOYEE class contains following members:
+data members: Employee number, Employee name, Basic, DA, IT, Net Salary
+and print data members using member functions.
+Note : Use Get and Set idioms.
+NOTE : Net Salary = ( Basic Salary + DA ) - IT
+
+Sample :
+//input
+Enter Employee Number : 10
+Enter Employee Name : Ram
+Enter Employee Basic Salary : 25000
+Enter Employee DA : 4000
+Enter Employee IT : 3000
+//output :
+Employee Details :
+Employee Number : 10
+Employee Name : Ram
+Employee Basic Salary : 25000
+Employee DA : 4000
+Employee IT : 3000
+Employee Net Salary : 26000
+
+*/
+#include<iostream>
+using namespace std;
+class employee
+{
+    public:
+    int id;
+    char name[20];
+    double salary;
+    int DA,IT;
+    double Net;
+    int set_id(void);
+    char set_name(void);
+    double set_salary(void);
+    int set_DA(void);
+    int set_IT(void);
+    double get_Netsalary(void);
+};
+int employee::set_id(void)
+{
+    cout<<"Enter Employee Number : ";
+    cin>>id;
+}
+char employee::set_name(void)
+{
+    cout<<"Enter Employee Name : ";
+    cin>>name;
+}
+double employee::set_salary(void)
+{
+    cout<<"Enter Employee Basic Salary : ";
+    cin>>salary;
+}
+int employee::set_DA(void)
+{
+    cout<<"Enter Employee DA : ";
+    cin>>DA;
+}
+int employee::set_IT(void)
+{
+    cout<<"Enter Employee IT : ";
+    cin>>IT;
+}
+double employee::get_Netsalary(void)
+{
+    cout<<"Employee Number : "<<id<<endl;
+    cout<<"Employee Name : "<<name<<endl;
+    cout<<"Employee Basic Salary : "<<salary<<endl;
+    cout<<"Employee DA : "<<DA<<endl;
+    cout<<"Employee IT : "<<IT<<endl;
+    cout<<"Employee Net Salary : ";
+    return((salary+DA)-IT);
+}
+int main()
+{
+    employee e;
+    e.set_id();
+    e.set_name();
+    e.set_salary();
+    e.set_DA();
+    e.set_IT();
+    cout<<"Employee Details :"<<endl;
+    cout<<e.get_Netsalary();
+    return 0;
+}
+5.
+/* Write a C++ program to use pointer for both base and derived classes and
+call the member function. Use Virtual keyword.
+
+Algorithm:
+1.	Start
+2.	Create a class Shape with member function getData() to read data and a virtual function called float calculateArea()
+3.	Create a derived class Square from base class shape and provide an implementation for virtual function claculateArea()
+4.	Create a derived class circle from base class shape and provide an implementation for virtual function claculateArea()
+5.	Call the above methods  from the main
+6.	End
+
+Sample input & output
+Enter length to calculate the area of a square: 4
+Area of square: 16
+Enter radius to calculate the area of a circle: 5
+Area of circle: 78.5
+*/
+
+#include<iostream>
+using namespace std;
+class Shape
+{
+    public:
+    int a;
+    virtual float getData()=0;
+    virtual float calculateArea()=0;
+};
+class Square : public Shape
+{
+    public:
+    float getData()
+    {
+        cin>>a;
+    }
+    float calculateArea()
+    {
+        return (a*a);
+    }
+};
+class Circle : public Shape
+{
+    public:
+    float getData()
+    {
+        cin>>a;
+    }
+    float calculateArea()
+    {
+        return (3.14*a*a);
+    }
+};
+int main()
+{
+    Square s;
+    Circle c;
+    cout<<"Enter length to calculate the area of a square: ";
+    s.getData();
+    cout<<"Area of square: "<<s.calculateArea()<<endl;
+    cout<<"Enter radius to calculate the area of a circle: ";
+    c.getData();
+    cout<<"Area of circle: "<<c.calculateArea()<<endl;
+    return 0;
+}
+6.
+//Inheritance
+#include<iostream>
+using namespace std;
+class parent
+{
+public:
+    int pid;
+};
+class child : public parent
+{
+public:
+    int cid;
+};
+int main()
+{
+    child c;
+    c.cid=10;
+    parent p;
+    p.pid=100;
+    cout<<"Child ID"<<c.cid<<endl<<"Parent ID"<<p.pid<<endl;
+}
+
+
+class child :protected parent
+{
+public:
+    int cid;
+    void act()
+    {
+        pid=100;
+    }
+};
+7.
+/* Write a C++ program to find the factorial of a number using copy constructor.
+
+Sample :
+Enter Value : 5
+Factorial : 120
+Factorial : 120
+*/
+#include<iostream>
+using namespace std;
+class Factorial
+{
+        int n, i, facti;
+        public:
+        Factorial(int x)
+        {
+               n=x;
+        }
+        Factorial(Factorial &x) //copy constructor
+        {
+                n=x.n;
+        }
+        void calculate()
+        {
+               facti=1;
+               for(i=n;i>0;i--)
+               {
+                   facti=facti*i;
+               }
+        }
+        void display()
+        {
+                cout<<"\n Factorial : "<<facti;
+        }
+};
+int main()
+{
+        int x;
+        cout<<"\n Enter Value : ";
+        cin>>x;
+        Factorial f1(x);
+        f1.calculate();
+        f1.display();
+
+        Factorial f2(f1);  //copy constructor takes an object as an argument.
+        f2.calculate();
+        f2.display();
+
+        return 0;
+}
+8.
+/* Write a C++ program to calculate the area of triangle,
+rectangle and circle using constructor overloading.
+The program should be menu driven.
+HINT :
+Area of a circle : 3.14 * radius * radius
+Area of a Rectangle : length * breadth
+Area of a Traingle : SQRT(s(s-a)(s-b)(s-c)) where s = (side1+side2+side3)/2
+
+
+Sample :
+ 1. Area of Circle
+ 2. Area of Rectangle
+ 3. Area of Triangle
+
+ Enter Your Choice : 2
+
+ Enter Length and Breadth of the Rectangle : 8 9
+
+ Area : 72
+
+*/
+#include<iostream>
+#include<math.h>
+#include<cstdlib>
+#define PI 3.14
+using namespace std;
+
+class area
+{
+        float ar;
+        int s;
+        public:
+                area(float r)
+                {
+                    ar=PI*r*r;
+                   //  cout<<arr;
+                }
+                area(float l, float b)
+                {
+                    ar=l*b;
+                     //  cout<<ar;
+                }
+                area(float a, float b, float c)
+                {
+                    s=(a+b+c)/2;
+                        ar=sqrt(s*(s-a)*(s-b)*(s-c));
+                        //cout<<ar;
+                }
+                void display()
+                {
+                        cout<<"\n Area : "<<ar;
+                }
+};
+int main()
+{
+        int ch;
+        float x, y, z;
+
+                cout<<"\n 1. Area of Circle";
+                cout<<"\n 2. Area of Rectangle";
+                cout<<"\n 3. Area of Triangle";
+                cout<<"\n\n Enter Your Choice : ";
+                cin>>ch;
+
+                switch(ch)
+                {
+                       case 1 :
+                        {
+                                cout<<"\n Enter Radius of the Circle : ";
+                               cin>>x;
+                               area as(x);
+                               as.display();
+                        }
+                        break;
+
+                        case 2 :
+                        {
+                                cout<<"\n Enter Length and Breadth of the Rectangle : ";
+                                cin>>y>>z;
+                               area as(y,z);
+                                as.display();
+                        }
+                        break;
+
+                        case 3 :
+                        {
+                                cout<<"\n Enter Sides of the Triangle : ";
+                                cin>>x>>y>>z;
+                              area as(x,y,z);
+                               as.display();
+                        }
+                        break;
+
+                        default :
+                                cout<<"\n\n Invalid Choice ...";
+                }
+
+        return 0;
+}
+9.
+/* Read Student name and 3 subject marks.
+If any of the marks is less than 0 and greater than 100 print Invalid marks.
+Read the Inputs till the inputs are valid marks.
+Note : Use Exception Handling.
+
+Sample 1:
+Enter sudentname :Abhigyan
+Enter physics marks : 95
+Enter chemistry marks : 98
+Enter mathsmarks : 102
+Invalid Marks
+Sample 2:
+Enter sudentname :Abhigyan
+Enter physics marks : 95
+Enter chemistry marks : 198
+Invalid Marks
+Sample 3:
+Enter sudentname :Abhigyan
+Enter physics marks : 125
+Invalid Marks
+Sample 4:
+Enter sudentname :Abhigyan
+Enter physics marks : 95
+Enter chemistry marks : 98
+Enter mathsmarks : 99*/
+#include<iostream>
+using namespace std;
+void print()
+{
+    int p,c,m;
+    char name[20];
+    try
+    {
+        cout<<"Enter sudentname :";
+    cin>>name;
+    cout<<"Enter physics marks : ";
+    cin>>p;
+        if(p<0 || p>100)
+        {
+            throw"Invalid Marks";
+        }
+        cout<<"Enter chemistry marks : ";
+    cin>>c;
+    if(c<0 || c>100)
+        {
+            throw"Invalid Marks";
+        }
+        cout<<"Enter mathsmarks : ";
+    cin>>m;
+    if(m<0 || m>100)
+        {
+            throw"Invalid Marks";
+        }
+    }
+    catch(const char *x)
+    {
+        cout<<x;
+    }
+}
+int main()
+{
+    print();
+    return 0;
+}
+10.
+/* Read the array elements with positive and negative integers.
+Travel through the all the elements in array and
+if a specified value in array is positive integer print Positive Integer,
+if a soecified value in array is negative integer print Negative Integer.
+
+Note: Consider 0 as positive integer.
+
+Sample :
+3 //no of elements
+//array elements
+5
+-6
+7
+//output
+Positive Integer
+Negative Integer
+Positive Integer
+
+*/
+#include<iostream>
+using namespace std;
+void find(int a)
+{
+    try
+    {
+        if(a>=0)
+        {
+            throw"Positive Integer\n";
+        }
+        else
+        {
+            throw"Negative Integer\n";
+        }
+    }
+    catch(const char *x)
+    {
+        cout<<x;
+    }
+}
+int main()
+{
+    int n,a[20],i;
+    cin>>n;//no ofelements
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];//reading arr elements
+    }
+    for(i=0;i<n;i++)
+    {
+        find(a[i]);
+    }
+    return 0;
+}
+11.
+/* Define a class to represent a bank account. Include the following members:
+
+Data members:
+1) Name of the depositor
+2) Account number
+3) Type of account
+4) Balance amount in the account.
+
+Member functions:
+1) To assign initial values
+2) To deposit an amount
+3) To withdraw an amount after checking the balance
+4) To display name and balance.
+
+Write a main program to test the program.
+
+Sample :
+Enter Details :
+Account Number : 4578913
+Name : Hari
+Account Type : Savings
+Balance : 50000
+Enter Deposit Amount : 5000
+Enter Withdraw Amount : 10000
+Account Details :
+Account Number : 4578913
+Name : Hari
+Account Type : Savings
+Balance : 45000
+
+*/
+#include<iostream>
+using namespace std;
+class bank
+{
+    private:
+    char name[20];
+    long ac_no;
+    char ac_type[30];
+    double balance;
+    double dep;
+    double withdr;
+    public:
+    void assign();
+    double deposit();
+    double withdraw();
+    void display();
+};
+void bank::assign()
+{
+    cout<<"Enter Details :"<<endl;
+    cout<<"Account Number : ";
+    cin>>ac_no;
+    cout<<"Name : ";
+    cin>>name;
+    cout<<"Account Type : ";
+    cin>>ac_type;
+    cout<<"Balance : ";
+    cin>>balance;
+}
+double bank::deposit()
+{
+    cout<<"Enter Deposit Amount : ";
+    cin>>dep;
+}
+double bank::withdraw()
+{
+    cout<<"Enter Withdraw Amount : ";
+    cin>>withdr;
+}
+void bank::display()
+{
+    balance=(balance+dep)-withdr;
+    cout<<"Account Details :"<<endl;
+    cout<<"Account Number : "<<ac_no<<endl;
+    cout<<"Name : "<<name<<endl;
+    cout<<"Account Type : "<<ac_type<<endl;
+    cout<<"Balance : "<<balance<<endl;
+}
+int main()
+{
+    bank b;
+    b.assign();
+    b.deposit();
+    b.withdraw();
+    b.display();
+}
+12.
+/* Define a method divide with integer parameter which performs the division of two number.
+
+From a main function call the divide() method and print the result.
+
+NOTE: Use Exception Handling
+
+Sample :
+//input
+10
+2
+//output
+5
+
+Sample 2:
+//input
+50
+0
+//output
+Division by Zero(0) not possible.
+
+*/
+#include<iostream>
+using namespace std;
+int divide(int a,int b)
+{
+    try
+    {
+        if(b==0)
+        {
+            throw"Division by Zero(0) not possible.\n";
+        }
+        else
+        {
+            int t=a/b;
+            cout<< t;
+        }
+    }
+    catch(...)
+    {
+        cout<<"Division by Zero(0) not possible.\n";
+    }
+}
+int main()
+{
+    int a,b;
+    cin>>a;
+    cin>>b;
+    divide(a,b);
+    return 0;
+}
+13.
+/* Write a cpp program to calculate the area of the square and circle by using
+Abstract Classes and Pure Virtual Functions-(use class Shape)
+Sample input & output
+Enter length to calculate the area of a square: 4
+Area of square: 16
+Enter radius to calculate the area of a circle: 5
+Area of circle: 78.5
+
+*/
+#include<iostream>
+using namespace std;
+class Shape
+{
+    public:
+    int a;
+    virtual void getData()=0;
+    virtual float calculateArea()=0;
+};
+class Square :public Shape
+{
+    public:
+    void getData()
+    {
+        cin>>a;
+    }
+    float calculateArea()
+    {
+        return(a*a);
+    }
+};
+class Circle :public Shape
+{
+    public:
+    void getData()
+    {
+        cin>>a;
+    }
+    float calculateArea()
+    {
+        return(3.14*a*a);
+    }
+};
+int main()
+{
+    Square s;
+    Circle c;
+    cout <<"Enter length to calculate the area of a square: ";
+    s.getData();
+    cout<<"Area of square: "<< s.calculateArea();
+    cout<<"\nEnter radius to calculate the area of a circle: ";
+    c.getData();
+    cout <<"Area of circle: "<< c.calculateArea();
+    return 0;
+}
