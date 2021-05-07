@@ -1,0 +1,29 @@
+#include<stdio.h>
+//#include<ctype.h>
+void main()
+{
+char ch;
+FILE*fp=fopen("er.txt","r");
+FILE*fp1=fopen("r.txt","w");
+if(fp==NULL&&fp1==NULL)
+{
+printf("ERROR>>>");
+}
+else
+{
+while((ch=fgetc(fp))!=EOF)
+{
+if(isupper(ch))
+{
+ch=ch+32;
+}
+else
+{
+ch=ch-32;
+}
+fputc(ch,fp1);
+}
+}
+fclose(fp);
+fclose(fp1);
+}

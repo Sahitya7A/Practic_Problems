@@ -1,0 +1,55 @@
+#include<stdio.h>
+void main()
+{
+int a,b,c,x,i=90,s=99,t=97,W,Y,res;
+printf("enter a,bvalues");
+scanf("%d%d",&a,&b);
+float g;
+res=a+b;
+printf("%d\n",res);
+res=a-b;
+printf("%d\n",res);
+res=a*b;
+printf("%d\n",res);
+res=a/b;
+printf("%d\n",res);
+res=a%b;
+printf("%d\n",res);
+c=a;
+printf("%d\n",c);
+c +=a;
+printf("%d\n",c);
+c -=b;
+printf("%d\n",c);
+c *=a;
+printf("%d\n",c);
+c /=a;
+printf("%d\n",c);
+c %=b;
+printf("%d\n",c);
+printf("%d\n",a>b);
+printf("%d\n",a<b);
+printf("%d\n",a<=b);
+printf("%d\n",a>=b);
+printf("%d\n",a==b);
+printf("%d\n",a!=b);
+printf("%d\n",++a);
+printf("%d\n",--b);
+printf("%d\n",a++);
+printf("%d\n",b--);
+printf("%d\n",(a!=b)&&(a==b));
+printf("%d\n",(a<b)||(a<=b));
+printf("%d\n",!(a!=b));
+printf("%d\n",sizeof(a));
+printf("%d\n",sizeof(g));
+printf("%d\n",s&t);
+printf("%d\n",s|t);
+printf("%d\n",a^b);
+x=(i>0)?56:98;
+printf("%d\n",x);
+//printf("%d\n",s~t);
+W=a>>2;
+printf("%d\n",W);
+Y=b<<1;
+printf("%d\n",Y);
+}

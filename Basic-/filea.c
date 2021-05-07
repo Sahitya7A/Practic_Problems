@@ -1,0 +1,31 @@
+#include<stdio.h>
+void main()
+{
+char ch;
+FILE*fp=fopen("er.txt","w");
+if(fp==NULL)
+{
+printf("ERROR>>>");
+}
+else
+{
+while((ch=getchar())!='%')
+{
+fputc(ch,fp);
+}
+}
+fclose(fp);
+FILE*fp1=fopen("er.txt","r");
+if(fp1==NULL)
+{
+    printf("ERROR>>");
+}
+else
+{
+    while((ch=fgetc(fp1))!=EOF)
+    {
+        printf("%c",ch);
+    }
+}
+fclose(fp1);
+}
