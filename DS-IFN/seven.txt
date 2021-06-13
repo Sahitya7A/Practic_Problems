@@ -1,0 +1,431 @@
+import java.util.ArrayList; // Importing the ArrayList class
+import java.util.List;
+
+class Tester {
+	public static void main(String[] args) {
+		List<String> food = new ArrayList<String>(); // Creating a list of String elements
+		food.add("Laddu"); // Adding elements
+		food.add("Ghevar");
+		food.add("Pasayam");
+		food.add("Pongal");
+		food.add("Rasgulla");
+		System.out.println("Food items: " + food);
+	}
+}----==
+import java.util.ArrayList;
+import java.util.List;
+
+class Tester {
+	public static void main(String[] args) {
+		List<Integer> numbers = new ArrayList<Integer>();  // Creating an ArrayList object
+		// Adding the elements to the list
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		numbers.add(5);
+		numbers.add(6);
+		System.out.println("numbers list: " + numbers);
+
+		// Adding the number 15 at a particular index (index: 3) in the ArrayList
+		numbers.add(3, 15);
+		System.out.println("Observe the index position 3: " + numbers);
+
+		// Finding the size of the ArrayList
+		System.out.println("Size of the ArrayList: " + numbers.size());
+
+		// Retrieving the element at a specified index
+		System.out.println("The number present at the fifth index position is " + numbers.get(5));
+
+		// Modifying the element at a specified index (index: 2)
+		numbers.set(2, 200);
+		System.out.println("The number at the 2nd index position is changed from 3 to 200");
+
+	}
+}--===
+import java.util.ArrayList;
+import java.util.List;
+
+class Student {
+	private int studentId;
+	private String studentName;
+	private boolean courseRegistered;
+
+	public Student(int studentId, String studentName, boolean courseRegistered) {
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.courseRegistered = courseRegistered;
+	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	public boolean getCourseRegistered() {
+		return courseRegistered;
+	}
+
+	public void setCourseRegistered(boolean courseRegistered) {
+		this.courseRegistered = courseRegistered;
+	}
+
+}
+
+class Tester {
+	public static void main(String[] args) {
+		List<Student> students = new ArrayList<Student>();
+		students.add(new Student(1001, "Steve", true));
+		students.add(new Student(1002, "Rachel", false));
+		students.add(new Student(1003, "Monica", true));
+		students.add(new Student(1004, "David", true));
+
+		List<String> studentNames = new ArrayList<String>();
+		for (Student student : students) {
+			studentNames.add(student.getStudentName());
+			System.out.println("Student Id: " + student.getStudentId());
+			System.out.println("Student Name: " + student.getStudentName());
+			System.out.println("Course Registered: " + student.getCourseRegistered());
+		}
+		System.out.println("===========================================");
+		System.out.println("Student Names: " + studentNames);
+
+	}
+}
+
+--=====
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+public class Tester {
+	public static void main(String[] args) {
+		List<Integer> numbers = new ArrayList<Integer>();
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		// Looping ArrayList using listIterator()
+		ListIterator<Integer> item = numbers.listIterator();
+		System.out.println("Displaying numbers...");
+		while (item.hasNext()) {
+			System.out.println(item.next());
+		}
+		System.out.println("Display numbers in the reverse order");
+		while (item.hasPrevious()) {
+			System.out.println(item.previous());
+		}
+	}
+}
+---=====
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+class Student {
+	private int studentId;
+	private String studentName;
+	private boolean courseRegistered;
+
+	public Student(int studentId, String studentName, boolean courseRegistered) {
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.courseRegistered = courseRegistered;
+	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	public boolean isCourseRegistered() {
+		return courseRegistered;
+	}
+
+	public void setCourseRegistered(boolean courseRegistered) {
+		this.courseRegistered = courseRegistered;
+	}
+
+}
+
+class Tester {
+	public static void main(String[] args) {
+		List<Student> students = new ArrayList<Student>();
+		students.add(new Student(1001, "Steve", true));
+		students.add(new Student(1002, "Rachel", false));
+		students.add(new Student(1003, "Monica", true));
+		students.add(new Student(1004, "David", true));
+
+		ListIterator<Student> item = students.listIterator();
+		System.out.println("Student names");
+		while (item.hasNext()) {
+			System.out.println(item.next().getStudentName());
+		}
+        
+        System.out.println();
+        
+		System.out.println("Student names in reverse order");
+		while (item.hasPrevious()) {
+			System.out.println(item.previous().getStudentName());
+		}
+
+	}
+}
+--=====
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Iterator;
+
+class Tester {
+	public static void main(String[] args) {
+		// Creating HashSet
+		Set<String> food = new HashSet<String>();
+
+		// Checking if a HashSet is empty
+		System.out.println("Is the set empty? : " + food.isEmpty());
+
+		// Adding elements to the HashSet
+		food.add("Pasta");
+		food.add("Noodles");
+		food.add("Sandwich");
+		food.add("Pasta");
+		food.add("Burger");
+		food.add("Noodles");
+		System.out.print("Set output without the duplicates: ");
+		System.out.println(food);
+
+		// Finding the size of the HashSet
+		System.out.println("The number of food items in the set: " + food.size());
+
+		// Checking if the HashSet contains the given element
+		String foodItem = "Pasta";
+		if (food.contains(foodItem))
+			System.out.println(foodItem + " is already ordered");
+		else
+			System.out.println(foodItem + " is not ordered");
+
+		// Removing an element from the HashSet
+		if(food.remove("Burger"))
+		    System.out.println("Output after removing Burger from the set:" + food);
+
+		// Traversing elements
+		Iterator<String> item = food.iterator();
+
+		while (item.hasNext())
+			System.out.println(item.next());
+
+		// Removing all the elements from the HashSet
+		food.clear();
+		System.out.println("After clear() => " + food);
+	}
+}
+--=====
+import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
+
+class User {
+	private int userId;
+	private String userName;
+	private String emailId;
+
+	public User(int userId, String userName, String emailId) {
+		this.userId = userId;
+		this.userName = userName;
+		this.emailId = emailId;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	@Override
+	public boolean equals(Object user) {
+		User otherUser = (User) user;
+		if (this.emailId.equals(otherUser.emailId))
+			return true;
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return emailId.hashCode();
+	}
+	
+	@Override
+	public String toString() {
+		return "User Name: "+userName + ", Email Id: " + emailId;
+	}
+}
+
+class Tester {
+
+	public static void main(String[] args) {
+		List<User> userList = new ArrayList<User>();
+		userList.add(new User(1001, "Mike", "Mike@example.com"));
+		userList.add(new User(1002, "Ben", "User@example.com"));
+		userList.add(new User(1003, "Henry", "Henry@example.com"));
+		userList.add(new User(1004, "Hannah", "User@example.com"));
+		userList.add(new User(1005, "Ellie", "Henry@example.com"));
+		userList.add(new User(1006, "Ryan", "Ryan@example.com"));
+
+		Set<User> userSet = new HashSet<User>();
+		userSet.addAll(userList);
+		for (User user : userSet)
+			System.out.println(user);
+	}
+}
+
+--===
+import java.util.Map;
+import java.util.HashMap;
+
+class Tester {
+
+	public static void main(String args[]) {
+		Map<String, Integer> books = new HashMap<String, Integer>();
+		
+		//Adding key-value pairs to the map
+		books.put("Data Structures With Java", 50);
+		books.put("Operating System", 80);
+		books.put("Let Us C", 70);
+		books.put("Java Fundamentals", 40);
+		
+		//Displaying all the key-value pairs present in the map
+		System.out.println(books);
+		
+		//Traversing the map
+		//entrySet() method is used to retrieve all the key value pairs
+		 for(Map.Entry<String, Integer> book:books.entrySet())
+		       System.out.println(book.getKey()+", "+book.getValue());  
+		 
+		 //keySet() method returns the keys in the Map
+		 for(String name:books.keySet())
+		       System.out.println("key: "+name);  
+		       
+		 //values() method returns the values in the Map
+		 for(int quantity:books.values())
+		       System.out.println("value: "+quantity);  
+		 
+		 //Removing element based on key
+		 books.remove("Let Us C");
+		 
+		 //Removing element based on value
+		 //Uncomment the code given below, execute and observe the output
+		 //books.remove(70);
+		 
+		 //Removing element based on key and value
+		 //Uncomment the code given below, execute and observe the output
+		 //books.remove("Let Us C", 70);
+		 
+		 System.out.println(books);
+		 
+		 //Replacing key-value pair in the map
+		 books.replace("Operating System", 80, 100);
+		 System.out.println(books);
+		 
+		 //Getting a value from the map based on key
+		 System.out.println(books.get("Java Fundamentals"));
+		 
+		 //Printing size of the map
+		 System.out.println(books.size());
+		 
+		 //Removing all the key-value pairs from the map
+		 books.clear();
+		 
+		 //Checking if the map is empty
+		 System.out.println(books.isEmpty());
+	}
+
+}
+
+import java.util.List;
+import java.util.LinkedList;
+
+class EuropeTrip {
+
+	public static void main(String args[]) {
+		// Creating a LinkedList
+		List<String> cities = new LinkedList<String>();
+
+		// Adding elements
+		cities.add("Milan");
+		cities.add("Venice");
+		cities.add("Munich");
+		cities.add("Vienna");
+
+		// Displaying elements
+		System.out.println(cities);
+
+		// Inserting elements
+		cities.add(3, "Prague");
+		System.out.println(cities);
+
+		// Removing elements
+		cities.remove("Munich");
+		System.out.println(cities);
+
+		// Replacing element
+		cities.set(2, "Berlin");
+		System.out.println(cities);
+
+		// Displaying size
+		System.out.println(cities.size());
+
+		// Checking if an element is present
+		System.out.println(cities.contains("Paris"));
+
+		// Getting element at specific position
+		System.out.println(cities.get(0));
+
+		// Clearing the elements from the LinkedList
+		cities.clear();
+		System.out.println(cities);
+
+		// Try to test the other methods of the LinkedList class
+	}
+}
+
+--===
